@@ -1,32 +1,24 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * print_rev - main function
- * @y: The argument pointer.
- *
- * Description: This function reverse a string.
- *
- * Return: The total number of characters.
+ * print_rev - prints a string in reverse
+ * @l: argument from _printf
+ * Return: length of the printed string
  */
-int print_rev(va_list y)
-{
-	int i = 0, count = 0;
-	char *s = va_arg(y, char*);
 
-	if (s == NULL)
-	{
+int print_rev(va_list l)
+{
+	int i = 0, j;
+	char *s = va_arg(l, char *);
+
+	if (!s)
 		s = "(null)";
-	}
 
 	while (s[i])
-	{
 		i++;
-	}
-	i--;
-	for (; i >= 0; i--)
-	{
-		_putchar(s[i]);
-		count++;
-	}
-	return (count);
+
+	for (j = i - 1; j >= 0; j--)
+		_putchar(s[j]);
+
+	return (i);
 }
